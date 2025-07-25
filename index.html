@@ -8,20 +8,11 @@
 </head>
 <body>
 
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">KairosPy</a>
-            <ul>
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <header class="hero">
         <div class="container">
-            <img src="Logo_KAIROS-sin fondo.png" alt="Logo KairosPy" class="logo">
+            <img src="source/Logo_KAIROS-sin fondo.png" alt="Logo KairosPy" class="logo">
             <div>
                 <p class="concepto">Del griego (καιρός): el momento oportuno, el momento adecuado.</p>
                 <p class="tagline">
@@ -126,7 +117,7 @@
                     <img src="telefonica-5.svg" alt="Logo Telefónica">
                     <img src="Endesa.png" alt="Logo Endesa">
                     <img src="nh-hotels.svg" alt="Logo NH Hotels">
-                    <img src="atento-4.svg" alt="Logo Atento">
+                    <img src="source/atento-4.svg" alt="Logo Atento">
                     <img src="conquer.png" alt="Logo Conquer Blocks">
                 </div>
             </div>
@@ -158,6 +149,14 @@
         <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
         <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
     </footer>
+
+<script>
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - KairosPy</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="page-header">
+        <h1>El Talento detrás de KairosPy</h1>
+        <p style="font-size: 1.2rem; color: #555;">Conoce a los expertos dedicados a resolver tus retos más complejos.</p>
+    </header>
+
+    <main class="container">
+        <div class="team-grid">
+
+            <article class="profile-card">
+                <img src="https://placehold.co/150x150/151354/FFFFFF/png?text=Perfil+1" alt="Foto de perfil de un miembro del equipo">
+                <h3>Nombre del Profesional</h3>
+                <p class="profile-role">Consultor Principal de IA y Datos</p>
+                <p>Apasionado por transformar datos en decisiones. Con más de 10 años de experiencia liderando proyectos de analítica avanzada para empresas del IBEX 35.</p>
+                <p class="profile-specialties">
+                    <strong>Especialidades:</strong> Machine Learning, Arquitectura Cloud (AWS), Estrategia de Datos.
+                </p>
+            </article>
+
+            <article class="profile-card">
+                <img src="https://placehold.co/150x150/12C2AE/FFFFFF/png?text=Perfil+2" alt="Foto de perfil de un miembro del equipo">
+                <h3>Nombre del Profesional</h3>
+                <p class="profile-role">Ingeniero de Datos Senior</p>
+                <p>Experto en la construcción de sistemas de datos robustos y escalables. Mi objetivo es asegurar que la información fluya de manera eficiente y segura para potenciar el análisis.</p>
+                <p class="profile-specialties">
+                    <strong>Especialidades:</strong> Pipelines ETL/ELT, Python, Kubernetes, Bases de Datos NoSQL.
+                </p>
+            </article>
+
+            <article class="profile-card">
+                <img src="https://placehold.co/150x150/FDF8E1/333333/png?text=Perfil+3" alt="Foto de perfil de un miembro del equipo">
+                <h3>Nombre del Profesional</h3>
+                <p class="profile-role">Desarrollador Full-Stack y Visualización</p>
+                <p>Convierto datos complejos en herramientas visuales e interactivas. Mi especialidad es crear dashboards y aplicaciones que sean tan intuitivas como potentes.</p>
+                <p class="profile-specialties">
+                    <strong>Especialidades:</strong> React, Streamlit, D3.js, Diseño de Experiencia de Usuario (UX).
+                </p>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>¿Quieres que nuestro equipo se convierta en una extensión del tuyo?</p>
+        <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
+    </footer>
+
+<script>
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+</script>
+
+</body>
+</html>

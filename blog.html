@@ -9,16 +9,7 @@
 </head>
 <body>
 
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">KairosPy</a>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <header class="page-header">
         <h1>Blog de KairosPy</h1>
@@ -50,6 +41,14 @@
         <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
         <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
     </footer>
+
+<script>
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+</script>
 
 </body>
 </html>
