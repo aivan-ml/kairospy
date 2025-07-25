@@ -3,65 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KairosPy - Próximamente</title>
+    <title>KairosPy - Consultoría Estratégica en Datos e IA</title>
     <style>
+        /* --- RESET Y ESTILOS GLOBALES --- */
+        :root {
+            --color-primario: #0a2540; /* Un azul oscuro y profesional */
+            --color-secundario: #d4a017; /* Un dorado/ámbar para el acento */
+            --color-texto: #333333;
+            --color-fondo: #fdfdfd;
+            --fuente-principal: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: var(--fuente-principal);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.7;
             margin: 0;
-            text-align: center;
+            padding: 0;
         }
         .container {
-            max-width: 600px;
-            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--color-primario);
+            line-height: 1.3;
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; border-bottom: 2px solid var(--color-secundario); padding-bottom: 10px; margin-top: 3rem; }
+        h3 { font-size: 1.4rem; color: var(--color-primario); margin-top: 2.5rem; }
+        p { font-size: 1.1rem; margin-bottom: 1rem; }
+        a { color: var(--color-secundario); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+
+        /* --- SECCIÓN HERO (INTRODUCCIÓN) --- */
+        .hero {
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 5rem 2rem;
         }
-        h1 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
+        .hero h1 {
+            margin-bottom: 1rem;
         }
-        .logo-py {
-            color: #306998; /* Un tono de azul Python */
+        .hero .concepto {
+            font-style: italic;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
+        .hero .tagline {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
         }
-        .social-links {
+
+        /* --- SECCIÓN DE SERVICIOS --- */
+        .servicios-lista ul {
+            list-style: none;
+            padding: 0;
+        }
+        .servicios-lista li {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid var(--color-secundario);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .servicios-lista li:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* --- SECCIÓN "POR QUÉ NOSOTROS" --- */
+        .porque-nosotros {
+            background-color: #f4f7f6;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .porque-nosotros .secreto {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--color-primario);
             margin-top: 2rem;
         }
-        .social-links a {
-            display: inline-block;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #306998;
-            transition: color 0.3s ease;
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.9rem;
+            color: #777;
         }
-        .social-links a:hover {
-            color: #ffc331; /* Un tono de amarillo Python */
+        .footer a {
+            color: var(--color-primario);
         }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kairos<span class="logo-py">Py</span></h1>
-        <p>
-            Próximamente, un espacio dedicado al desarrollo de algoritmos de alto rendimiento y soluciones web a medida con Python.
+
+    <header class="hero">
+        <h1>Kairos<span style="color: var(--color-secundario);">Py</span></h1>
+        <p class="concepto">Del griego (καιρός): el momento oportuno, el momento adecuado.</p>
+        <p class="tagline">
+            Somos el momento exacto que necesitas para superar ese obstáculo que te impide avanzar o para acelerar tu crecimiento.
         </p>
-        <div class="social-links">
-            <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/tu-usuario" target="_blank">LinkedIn</a>
+    </header>
+
+    <main>
+        <section class="porque-nosotros">
+            <div class="container">
+                <h2>Tu Socio Estratégico, no un Proveedor más</h2>
+                <p>
+                    Nos especializamos en resolver problemas complejos. Esos que involucran múltiples disciplinas, un gran volumen de datos o la necesidad de optimizar procesos críticos. Somos el perfil multi-valor que entra en acción cuando el reto es mayúsculo.
+                </p>
+                <div class="secreto">
+                    <p><strong>Un secreto a voces:</strong> las grandes consultoras no son entes mágicos. El trabajo real lo ejecutan profesionales expertos como nosotros. La diferencia es que ahora tienes la oportunidad de contratar directamente al mejor talento, sin pagar el sobrecoste de la marca.</p>
+                    <p><strong>Acceso directo al experto, a un precio justo.</strong></p>
+                </div>
             </div>
-    </div>
+        </section>
+
+        <section class="container">
+            <h2>¿En qué puedo ayudarte?</h2>
+            <div class="servicios-lista">
+                <ul>
+                    <li>
+                        <h3>1. Inteligencia Artificial y Automatización Inteligente</h3>
+                        <p>Desarrollo de chatbots y agentes con IA generativa, automatización de tareas complejas (análisis de documentos, textos, imágenes) y creación de modelos predictivos para ventas, logística o retención de clientes.</p>
+                    </li>
+                    <li>
+                        <h3>2. Ingeniería y Arquitectura de Datos en AWS</h3>
+                        <p>Diseño de arquitecturas de datos en AWS orientadas a analítica, seguridad y escalabilidad. Construcción de pipelines automatizados (ETL/ELT) para garantizar un flujo de datos robusto y fiable.</p>
+                    </li>
+                    <li>
+                        <h3>3. Estrategia y Reporting de Alto Impacto</h3>
+                        <p>Creación de dashboards centrados en KPIs estratégicos que ofrecen recomendaciones, no solo visualizaciones. Acompañamiento en la definición del roadmap de datos y desarrollo ágil de aplicaciones de análisis con herramientas como Streamlit.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>¿Listo para encontrar tu momento oportuno?</p>
+        <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
+        <p>&copy; 2024 KairosPy. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
