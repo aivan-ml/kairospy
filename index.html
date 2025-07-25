@@ -113,7 +113,7 @@
                 <div class="logos-grid">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Banco_Santander_Logotipo.svg" alt="Logo Santander">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Repsol_logo.svg" alt="Logo Repsol">
-                    <img src="https://es.wikipedia.org/wiki/Archivo:Acciona_logo.svg" alt="Logo Acciona">
+                    <img src="source/Acciona_logo.svg" alt="Logo Acciona">
                     <img src="telefonica-5.svg" alt="Logo Telefónica">
                     <img src="Endesa.png" alt="Logo Endesa">
                     <img src="nh-hotels.svg" alt="Logo NH Hotels">
@@ -150,13 +150,26 @@
         <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
     </footer>
 
-<script>
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+
+                    // Lógica para marcar el enlace activo
+                    const currentPage = window.location.pathname.split('/').pop();
+                    const navLinks = document.querySelectorAll('.main-nav a');
+                    
+                    navLinks.forEach(link => {
+                        const linkPage = link.getAttribute('href').split('/').pop();
+                        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
         });
-</script>
+    </script>
 
 </body>
 </html>

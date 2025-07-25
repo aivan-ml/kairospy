@@ -58,13 +58,26 @@
         <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
     </footer>
 
-<script>
-    fetch('nav.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+
+                    // Lógica para marcar el enlace activo
+                    const currentPage = window.location.pathname.split('/').pop();
+                    const navLinks = document.querySelectorAll('.main-nav a');
+                    
+                    navLinks.forEach(link => {
+                        const linkPage = link.getAttribute('href').split('/').pop();
+                        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
         });
-</script>
+    </script>
 
 </body>
 </html>
