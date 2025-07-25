@@ -37,22 +37,60 @@
         h3 { font-size: 1.4rem; color: var(--color-primario); margin-top: 2.5rem; }
         p { font-size: 1.1rem; margin-bottom: 1rem; }
         a { color: var(--color-secundario); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
+        a:hover { text-decoration: underline; }        
 
+        /* --- NAVEGACIÓN --- */
+        .main-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Un poco más ancho para la nav */
+            margin: 0 auto;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .main-nav ul a {
+            color: var(--color-texto);
+            font-weight: 600;
+            font-size: 1rem;
+        }
         /* --- SECCIÓN HERO (INTRODUCCIÓN) --- */
         .hero {
             background-color: var(--color-dorado-claro);
             color: var(--color-texto);
-            padding: 2rem 0;
+            /* Se elimina el padding aquí para un control más preciso en el .container */
         }
         .hero .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 3rem;
+            padding: 2.5rem 2rem; /* Padding vertical reducido para hacer la sección más compacta */
         }
         .hero .logo {
-            max-width: 200px;
+            max-width: 180px; /* Logo ligeramente más pequeño */
             margin-bottom: 0;
             flex-shrink: 0;
         }
@@ -69,18 +107,18 @@
             color: var(--color-texto);
         }
 
-        /* --- SECCIÓN "POR QUÉ NOSOTROS" --- */
-        .porque-nosotros {
+        /* --- SECCIÓN "QUIÉNES SOMOS" --- */
+        .quienes-somos {
             background-color: #ffffff;
         }
-        .porque-nosotros .secreto {
+        .quienes-somos .manifiesto {
             background-color: #f4f7f6;
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 5px solid var(--color-primario);
             margin-top: 2rem;
         }
-        
+
         /* --- SECCIÓN DE SERVICIOS --- */
         .servicios-lista ul {
             list-style: none;
@@ -89,15 +127,53 @@
         .servicios-lista li {
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
-            border-left: 5px solid var(--color-secundario);
             padding: 1.5rem;
             margin-bottom: 1rem;
-            border-radius: 5px;
+            border-radius: 8px;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
         }
         .servicios-lista li:hover {
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transform: translateY(-5px);
+        }
+        .servicio-icono {
+            flex-shrink: 0;
+        }
+        .servicio-icono img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: var(--color-dorado-claro);
+            padding: 5px;
+        }
+
+        /* --- SECCIÓN TECNOLOGÍA --- */
+        .tecnologia {
+            background-color: var(--color-dorado-claro);
+            border-top: 1px solid #e0e0e0;
+        }
+        .tech-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+            margin-top: 2.5rem;
+        }
+        .tech-logos-grid img {
+            max-height: 50px;
+            width: auto;
+            margin: 0 auto;
+            filter: grayscale(50%);
+            opacity: 0.9;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .tech-logos-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         /* --- SECCIÓN CLIENTES --- */
@@ -124,6 +200,53 @@
             opacity: 1;
         }
 
+        /* --- SECCIÓN CONTACTO --- */
+        .contacto {
+            background-color: var(--color-fondo);
+        }
+        .contact-form {
+            margin-top: 2.5rem;
+            display: grid;
+            gap: 1.5rem;
+            max-width: 700px; /* Limita el ancho del formulario */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-family: var(--fuente-principal);
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-secundario);
+            box-shadow: 0 0 0 3px rgba(18, 194, 174, 0.25);
+        }
+        .btn-submit {
+            background-color: var(--color-secundario);
+            color: #ffffff;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-submit:hover {
+            background-color: #0f9b8a; /* Un tono más oscuro del secundario */
+        }
+
         /* --- FOOTER --- */
         .footer {
             text-align: center;
@@ -143,6 +266,17 @@
 </head>
 <body>
 
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">KairosPy</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header class="hero">
         <div class="container">
             <img src="Logo_KAIROS-sin fondo.png" alt="Logo KairosPy" class="logo">
@@ -156,13 +290,16 @@
     </header>
 
     <main>
-        <section class="porque-nosotros">
+        <section class="quienes-somos">
             <div class="container">
-                <h2>Tu Socio Estratégico, no un Proveedor más</h2>
+                <h2>¿Quiénes Somos?</h2>
                 <p>
-                    Nos especializamos en resolver problemas complejos. Esos que involucran múltiples disciplinas, un gran volumen de datos o la necesidad de optimizar procesos críticos. Somos el perfil multi-valor que entra en acción cuando el reto es mayúsculo.
+                    KairosPy no es una consultora tradicional. Somos una red de freelance de alto rendimiento que dedicamos nuestro tiempo libre —noches y fines de semana— a lo que realmente nos apasiona: resolver esos retos.
                 </p>
-                <div class="secreto">
+                <p>
+                    Por eso, aunque nos encantaría nos vas a ver fotos de nosotros por aquí, a nuestras empresas de 9 a 5 no les parece demasiado bien lo que hacemos en nuestros descansos.
+                </p>
+                <div class="manifiesto">
                     <p><strong>Un secreto a voces:</strong> las grandes consultoras no son entes mágicos. El trabajo real lo ejecutan profesionales expertos como nosotros. La diferencia es que ahora tienes la oportunidad de contratar directamente al mejor talento, sin pagar el sobrecoste de la marca.</p>
                     <p><strong>Acceso directo al experto, a un precio justo.</strong></p>
                 </div>
@@ -170,22 +307,69 @@
         </section>
 
         <section class="container">
-            <h2>¿En qué puedo ayudarte?</h2>
+            <h2>¿En qué podemos ayudarte?</h2>
+                <p> 
+                    Nos especializamos en resolver problemas complejos. Esos que involucran múltiples disciplinas, un gran volumen de datos o la necesidad de optimizar procesos críticos. Somos el perfil multi-valor que entra en acción cuando el reto es enorme.
+                </p>
             <div class="servicios-lista">
                 <ul>
                     <li>
-                        <h3>1. Inteligencia Artificial y Automatización Inteligente</h3>
-                        <p>Desarrollo de chatbots y agentes con IA generativa, automatización de tareas complejas (análisis de documentos, textos, imágenes) y creación de modelos predictivos para ventas, logística o retención de clientes.</p>
+                        <div class="servicio-icono">
+                            <img src="https://placehold.co/100x100/151354/FFFFFF/png?text=IA" alt="Icono de Inteligencia Artificial">
+                        </div>
+                        <div class="servicio-contenido">
+                            <h3>Inteligencia Artificial y Automatización</h3>
+                            <p>Desarrollo de chatbots y agentes con IA generativa, automatización de tareas complejas (análisis de documentos, textos, imágenes) y creación de modelos predictivos para ventas, logística o retención de clientes.</p>
+                        </div>
                     </li>
                     <li>
-                        <h3>2. Ingeniería y Arquitectura de Datos</h3>
-                        <p>Diseño de arquitecturas de datos orientadas a analítica, seguridad y escalabilidad. Construcción de pipelines automatizados (ETL/ELT) para garantizar un flujo de datos robusto y fiable.</p>
+                        <div class="servicio-icono">
+                            <img src="https://placehold.co/100x100/151354/FFFFFF/png?text=Datos" alt="Icono de Ingeniería de Datos">
+                        </div>
+                        <div class="servicio-contenido">
+                            <h3>Ingeniería y Arquitectura de Datos</h3>
+                            <p>Diseño de arquitecturas de datos orientadas a analítica, seguridad y escalabilidad. Construcción de pipelines automatizados (ETL/ELT) para garantizar un flujo de datos robusto y fiable.</p>
+                        </div>
                     </li>
                     <li>
-                        <h3>3. Estrategia y Reporting de Alto Impacto</h3>
-                        <p>Creación de dashboards centrados en KPIs estratégicos que ofrecen recomendaciones, no solo visualizaciones. Acompañamiento en la definición del roadmap de datos y desarrollo ágil de aplicaciones de análisis con herramientas como Streamlit.</p>
+                        <div class="servicio-icono">
+                            <img src="https://placehold.co/100x100/151354/FFFFFF/png?text=KPI" alt="Icono de Estrategia y Reporting">
+                        </div>
+                        <div class="servicio-contenido">
+                            <h3>Estrategia y Reporting de Alto Impacto</h3>
+                            <p>Creación de dashboards centrados en KPIs estratégicos que ofrecen recomendaciones, no solo visualizaciones. Acompañamiento en la definición del roadmap de datos y desarrollo ágil de aplicaciones de análisis.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="servicio-icono">
+                            <img src="https://placehold.co/100x100/151354/FFFFFF/png?text=EDU" alt="Icono de Formación">
+                        </div>
+                        <div class="servicio-contenido">
+                            <h3>Formación y Capacitación Personalizada</h3>
+                            <p>Programas de formación a medida para equipos y directivos en temas clave como Machine Learning, visualización de datos avanzada, y uso estratégico de herramientas de IA. Capacitación práctica y orientada a resultados.</p>
+                        </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="tecnologia">
+            <div class="container">
+                <h2>Agnósticos en Tecnologías, nos importan más los resultados</h2>
+                <p>
+                    No creemos en soluciones únicas. Somos agnósticos tecnológicos por una razón: cada reto exige una herramienta diferente. Nuestra filosofía es simple: seleccionamos la tecnología que mejor se adapta a tus objetivos, no la que nos resulta más cómoda.
+                </p>
+                <p>
+                    Si la solución óptima requiere una herramienta que aún no dominamos, la aprendemos. Nuestra capacidad de adaptación y aprendizaje rápido es tu mayor ventaja competitiva.
+                </p>
+                <div class="tech-logos-grid">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft Azure Logo">
+                </div>
             </div>
         </section>
 
@@ -196,12 +380,32 @@
                 <div class="logos-grid">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Banco_Santander_Logotipo.svg" alt="Logo Santander">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Repsol_logo.svg" alt="Logo Repsol">
-                    <img src="Acciona_logo.svg" alt="Logo Acciona">
+                    <img src="https://es.wikipedia.org/wiki/Archivo:Acciona_logo.svg" alt="Logo Acciona">
                     <img src="telefonica-5.svg" alt="Logo Telefónica">
                     <img src="nh-hotels.svg" alt="Logo NH Hotels">
                     <img src="atento-4.svg" alt="Logo Atento">
                     <img src="conquer.png" alt="Logo Conquer Blocks">
                 </div>
+            </div>
+        </section>
+
+        <section class="contacto">
+            <div class="container" style="text-align: center;">
+                <h2>¿Quieres conocernos más?</h2>
+                <p>Cuéntanos a qué problema te estás enfrentando y te contactaremos para explorar cómo podemos ayudarte.</p>
+                
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe brevemente tu reto o consulta..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
             </div>
         </section>
     </main>

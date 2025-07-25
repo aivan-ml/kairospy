@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - KairosPy</title>
+    <style>
+        /* --- ESTILOS GLOBALES Y VARIABLES DE COLOR (Idénticos a index.html) --- */
+        :root {
+            --color-primario: #0B1B2A; /* Azul oscuro del logo */
+            --color-secundario: #D4A017; /* Dorado/Ámbar del logo */
+            --color-texto: #333333;
+            --color-fondo: #f9f9f9;
+            --fuente-principal: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
+        body {
+            font-family: var(--fuente-principal);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--color-primario);
+            line-height: 1.3;
+        }
+        h2 { font-size: 2.2rem; border-bottom: 2px solid var(--color-secundario); padding-bottom: 10px; margin-top: 3rem; }
+        h3 { font-size: 1.5rem; }
+        p { font-size: 1.1rem; margin-bottom: 1rem; }
+        a { color: var(--color-secundario); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+
+        /* --- NAVEGACIÓN (Idéntica a index.html) --- */
+        .main-nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .main-nav ul a {
+            color: var(--color-texto);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .main-nav ul a.active { /* Estilo para el enlace activo */
+            color: var(--color-secundario);
+        }
+
+        /* --- ESTILOS ESPECÍFICOS PARA EL BLOG --- */
+        .page-header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .article-summary {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        .article-summary:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .article-summary h3 a {
+            color: var(--color-primario);
+        }
+        .article-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* --- FOOTER (Idéntico a index.html) --- */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--color-primario);
+            color: #a0b3c4;
+        }
+        .footer p { margin: 0.5rem 0; }
+        .footer a { color: #ffffff; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">KairosPy</a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Blog de KairosPy</h1>
+        <p style="font-size: 1.2rem; color: #555;">Análisis, tutoriales y reflexiones sobre datos, IA y estrategia tecnológica.</p>
+    </header>
+
+    <main class="container">
+        <section class="articles-list">
+
+            <article class="article-summary">
+                <h3><a href="#">Cómo la IA Generativa está transformando el Reporting</a></h3>
+                <p class="article-meta">Publicado el 25 de Julio, 2025</p>
+                <p>Exploramos cómo las nuevas herramientas de IA no solo visualizan datos, sino que generan insights y resúmenes ejecutivos de forma automática, liberando tiempo para la toma de decisiones estratégicas.</p>
+                <a href="#" class="read-more">Leer más &rarr;</a>
+            </article>
+
+            <article class="article-summary">
+                <h3><a href="#">5 Errores Comunes al Construir un Pipeline de Datos en AWS</a></h3>
+                <p class="article-meta">Publicado el 18 de Julio, 2025</p>
+                <p>Desde la elección incorrecta de servicios hasta la falta de un buen gobierno del dato. Analizamos los fallos más habituales y cómo evitarlos para construir una infraestructura de datos escalable y segura.</p>
+                <a href="#" class="read-more">Leer más &rarr;</a>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>¿Listo para encontrar tu momento oportuno?</p>
+        <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
