@@ -7,10 +7,10 @@
     <style>
         /* --- RESET Y ESTILOS GLOBALES --- */
         :root {
-            --color-primario: #0a2540; /* Un azul oscuro y profesional */
-            --color-secundario: #d4a017; /* Un dorado/ámbar para el acento */
+            --color-primario: #0B1B2A; /* Azul oscuro del logo */
+            --color-secundario: #D4A017; /* Dorado/Ámbar del logo */
             --color-texto: #333333;
-            --color-fondo: #fdfdfd;
+            --color-fondo: #f9f9f9;
             --fuente-principal: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
         }
         body {
@@ -40,16 +40,18 @@
 
         /* --- SECCIÓN HERO (INTRODUCCIÓN) --- */
         .hero {
-            background-color: #ffffff;
+            background-color: var(--color-primario);
+            color: #ffffff;
             text-align: center;
             padding: 5rem 2rem;
         }
-        .hero h1 {
-            margin-bottom: 1rem;
+        .hero .logo {
+            max-width: 250px;
+            margin-bottom: 2rem;
         }
         .hero .concepto {
             font-style: italic;
-            color: #666;
+            color: #cccccc;
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
@@ -58,8 +60,21 @@
             font-weight: 300;
             max-width: 700px;
             margin: 0 auto;
+            color: #f0f0f0;
         }
 
+        /* --- SECCIÓN "POR QUÉ NOSOTROS" --- */
+        .porque-nosotros {
+            background-color: #ffffff;
+        }
+        .porque-nosotros .secreto {
+            background-color: #f4f7f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--color-primario);
+            margin-top: 2rem;
+        }
+        
         /* --- SECCIÓN DE SERVICIOS --- */
         .servicios-lista ul {
             list-style: none;
@@ -78,30 +93,44 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transform: translateY(-5px);
         }
-        
-        /* --- SECCIÓN "POR QUÉ NOSOTROS" --- */
-        .porque-nosotros {
-            background-color: #f4f7f6;
+
+        /* --- SECCIÓN CLIENTES --- */
+        .clientes {
+            background-color: #ffffff;
             border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
         }
-        .porque-nosotros .secreto {
-            background-color: #e9ecef;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--color-primario);
-            margin-top: 2rem;
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            margin-top: 2.5rem;
+        }
+        .logos-grid img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .logos-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         /* --- FOOTER --- */
         .footer {
             text-align: center;
-            padding: 3rem 2rem;
-            font-size: 0.9rem;
-            color: #777;
+            padding: 4rem 2rem;
+            background-color: var(--color-primario);
+            color: #a0b3c4;
+        }
+        .footer p {
+            margin: 0.5rem 0;
         }
         .footer a {
-            color: var(--color-primario);
+            color: #ffffff;
+            font-weight: bold;
         }
 
     </style>
@@ -109,7 +138,7 @@
 <body>
 
     <header class="hero">
-        <h1>Kairos<span style="color: var(--color-secundario);">Py</span></h1>
+        <img src="Logo_KAIROS.jpg" alt="Logo KairosPy" class="logo">
         <p class="concepto">Del griego (καιρός): el momento oportuno, el momento adecuado.</p>
         <p class="tagline">
             Somos el momento exacto que necesitas para superar ese obstáculo que te impide avanzar o para acelerar tu crecimiento.
@@ -149,12 +178,28 @@
                 </ul>
             </div>
         </section>
+
+        <section class="clientes">
+            <div class="container">
+                <h2>Marcas que han confiado en nuestra experiencia</h2>
+                <p>A lo largo de mi carrera, he tenido el privilegio de aportar valor a empresas líderes, tanto de forma directa como a través de consultoras de primer nivel como KPMG.</p>
+                <div class="logos-grid">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_Logotipo.svg/2560px-Santander_Logotipo.svg.png" alt="Logo Santander">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Repsol_logo.svg/2560px-Repsol_logo.svg.png" alt="Logo Repsol">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Acciona_logo.svg/2560px-Acciona_logo.svg.png" alt="Logo Acciona">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Telef%C3%B3nica_logo.svg/2560px-Telef%C3%B3nica_logo.svg.png" alt="Logo Telefónica">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/NH_Hotel_Group_logo.svg/2560px-NH_Hotel_Group_logo.svg.png" alt="Logo NH Hotels">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Atento_logo.svg/2560px-Atento_logo.svg.png" alt="Logo Atento">
+                    <img src="https://conquerblocks.io/wp-content/uploads/2021/04/Logo-Conquer-Blocks-Original-500x125-1.png" alt="Logo Conquer Blocks">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <p>¿Listo para encontrar tu momento oportuno?</p>
         <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
-        <p>&copy; 2024 KairosPy. Todos los derechos reservados.</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
     </footer>
 
 </body>
