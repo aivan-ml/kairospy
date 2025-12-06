@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palantir Foundry Ops - KAIROSPY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Shared "Technical" aesthetic from Tactical UI */
+        .separator-line {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero" style="height: 60vh;">
+        <div class="container hero-content">
+            <span class="tagline">> PLATFORM_TARGET: PALANTIR_FOUNDRY</span>
+            <h1>Operational Supremacy.</h1>
+            <p class="sub-hero">
+                We don't just build dashboards. We architect the Operating System of your enterprise 
+                using the world's most advanced ontology-based platform.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="btn" onclick="requestIntel()">INITIALIZE_PROTOCOL</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        
+        <section>
+            <div style="border-left: 3px solid var(--accent-primary); padding-left: 1.5rem;">
+                <h2 style="border: none; margin-bottom: 0.5rem; font-size: 1.8rem;">The Ontology is the Asset</h2>
+                <p style="font-size: 1.1rem; color: var(--text-main);">
+                    Most integrators treat Foundry like a glorified BI tool. That is a waste of capital. 
+                    We treat it as a <strong style="color: #fff;">digital twin</strong> of your operational reality.
+                </p>
+                <p style="color: var(--text-muted);">
+                    Our architects focus on the <strong>Ontology Layer</strong> first. We map objects, links, and actions 
+                    to mirror the physical world, enabling high-bandwidth decision loops that legacy ERPs cannot support.
+                </p>
+            </div>
+        </section>
+
+        <div class="separator-line"></div>
+
+        <section class="grid-hub">
+            
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> ARCHITECTURE
+                </div>
+                <h3>[01] Pipeline Engineering</h3>
+                <p class="hub-desc">
+                    Robust data engineering using PySpark and SQL within Foundry. 
+                    We build low-latency, high-reliability pipelines that feed the Ontology without breaking under pressure.
+                </p>
+                <ul class="tech-stack">
+                    <li>PySpark</li>
+                    <li>Foundry SQL</li>
+                    <li>Data Lineage</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> INTERFACE
+                </div>
+                <h3>[02] Workshop Applications</h3>
+                <p class="hub-desc">
+                    We retire spreadsheets by building "Write-Back" applications. 
+                    Give your operators the power to take action directly on the data, closing the operational loop instantly.
+                </p>
+                <ul class="tech-stack">
+                    <li>Workshop</li>
+                    <li>TypeScript (Slate)</li>
+                    <li>Action Types</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot yellow"></span> INTELLIGENCE
+                </div>
+                <h3>[03] AIP Integration</h3>
+                <p class="hub-desc">
+                    Leverage the Artificial Intelligence Platform (AIP). 
+                    We embed LLMs directly into your operational workflows to automate context-heavy analysis safely and securely.
+                </p>
+                <ul class="tech-stack">
+                    <li>AIP Logic</li>
+                    <li>Generative AI</li>
+                    <li>Automata</li>
+                </ul>
+            </article>
+
+        </section>
+
+        <section style="margin-top: 6rem; background: rgba(255,255,255,0.02); padding: 3rem; border: 1px dashed #333;">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <h3 style="color: var(--accent-primary);">> MISSION_PARAMETERS</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 1rem;">// SECTOR RESTRICTION</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-code);">
+                            Kairospy operates exclusively in the commercial sector (Supply Chain, Energy, Finance). 
+                            <span style="color: #ff5f56;">We do not engage in Gotham/Defense contracts.</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 1rem;">// DEPLOYMENT MODE</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-code);">
+                            Remote-first elite squads. Rapid deployment. Surgical execution. 
+                            We enter, build the ontology, and transfer ownership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="text-align: center; margin-top: 6rem;">
+            <p style="font-family: var(--font-code); color: var(--text-muted); margin-bottom: 1.5rem;">
+                > READY TO DECOUPLE FROM LEGACY SYSTEMS?
+            </p>
+            <a href="index.html#contact" class="btn" onclick="requestIntel()">REQUEST_ARCHITECT &rarr;</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KAIROSPY. All Operations Classified.</p>
+            <p style="font-family: var(--font-code); font-size: 0.8rem; color: #444;">EST. MADRID // GLOBAL OPS</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                    const navLinks = document.querySelectorAll('.main-nav a');
+                    navLinks.forEach(link => {
+                        // Mark Foundry as active
+                        if (link.getAttribute('href') === 'foundry_ops.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+        });
+
+        function requestIntel() {
+            // Optional: Store intent
+            localStorage.setItem('kairospy_intent', 'foundry_ops');
+            window.location.href = "index.html#contact";
+        }
+    </script>
+</body>
+</html>

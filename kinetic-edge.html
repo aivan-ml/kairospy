@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Edge - KAIROSPY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Shared "Technical" aesthetic from the Design System */
+        .separator-line {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero" style="height: 60vh;">
+        <div class="container hero-content">
+            <span class="tagline">> PROTOCOL: PHYSICAL_LAYER</span>
+            <h1>Engineering where data does not yet exist.</h1>
+            <p class="sub-hero">
+                When software is not enough, we build the hardware. Custom IoT, industrial 3D printing, 
+                and Edge AI for hostile environments.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="btn" onclick="requestHardware()">INITIATE_BLACKBOX</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        
+        <section>
+            <div style="border-left: 3px solid var(--accent-primary); padding-left: 1.5rem;">
+                <h2 style="border: none; margin-bottom: 0.5rem; font-size: 1.8rem;">The Hardware Gap</h2>
+                <p style="font-size: 1.1rem; color: var(--text-main);">
+                    Legacy machinery is often "blind". Standard sensors don't fit, and commercial IoT is too fragile.
+                </p>
+                <p style="color: var(--text-muted);">
+                    We bridge this gap by designing <strong style="color: #fff;">bespoke extraction layers</strong>. 
+                    We print the housing, solder the PCB, and train the model to run on the edge.
+                </p>
+            </div>
+        </section>
+
+        <div class="separator-line"></div>
+
+        <section class="grid-hub">
+            
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> HARDWARE
+                </div>
+                <h3>[01] Extraction</h3>
+                <p class="hub-desc">
+                    We design and manufacture bespoke sensors using industrial 3D printing. 
+                    We adapt to legacy machinery or rugged environments where commercial sensors fail.
+                </p>
+                <ul class="tech-stack">
+                    <li>Custom PCB</li>
+                    <li>Ind. 3D Print</li>
+                    <li>LoRaWAN</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> INTELLIGENCE
+                </div>
+                <h3>[02] Edge Processing</h3>
+                <p class="hub-desc">
+                    We do not send noise to the cloud. We deploy Machine Learning models directly on-device 
+                    (Microcontrollers/Raspberry Pi) to filter and execute decisions in milliseconds.
+                </p>
+                <ul class="tech-stack">
+                    <li>TinyML</li>
+                    <li>TensorFlow Lite</li>
+                    <li>C++</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot yellow"></span> UPLINK
+                </div>
+                <h3>[03] Cloud Integration</h3>
+                <p class="hub-desc">
+                    Clean telemetry is injected directly into your data pipeline (AWS, Azure, Palantir Foundry) 
+                    to complete the strategic operational picture of your enterprise.
+                </p>
+                <ul class="tech-stack">
+                    <li>MQTT</li>
+                    <li>Foundry Streaming</li>
+                    <li>AWS IoT</li>
+                </ul>
+            </article>
+
+        </section>
+
+        <section style="margin-top: 6rem; background: rgba(255,255,255,0.02); padding: 3rem; border: 1px dashed #333;">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <h3 style="color: var(--accent-primary);">> PROJECT: BLACKBOX</h3>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; color: #fff; margin-bottom: 1rem;">// TARGET ACQUISITION</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-code);">
+                            Do you have a "blind" physical asset? Describe the environment and the variable you need to measure. 
+                            We will design the device to capture it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="text-align: center; margin-top: 6rem;">
+            <p style="font-family: var(--font-code); color: var(--text-muted); margin-bottom: 1.5rem;">
+                > DEPLOY SENSORS TO THE FIELD?
+            </p>
+            <a href="index.html#contact" class="btn" onclick="requestHardware()">REQUEST_PROTOTYPE &rarr;</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KAIROSPY. All Operations Classified.</p>
+            <p style="font-family: var(--font-code); font-size: 0.8rem; color: #444;">EST. MADRID // GLOBAL OPS</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                    const navLinks = document.querySelectorAll('.main-nav a');
+                    navLinks.forEach(link => {
+                        // Mark Kinetic as active
+                        if (link.getAttribute('href') === 'kinetic-edge.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+        });
+
+        function requestHardware() {
+            // Store intent
+            localStorage.setItem('kairospy_intent', 'kinetic_edge');
+            window.location.href = "index.html#contact";
+        }
+    </script>
+</body>
+</html>
