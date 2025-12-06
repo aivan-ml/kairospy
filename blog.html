@@ -1,45 +1,85 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - KairosPy</title>
+    <title>Intelligence - KAIROSPY</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div id="navbar-placeholder"></div>
 
-    <header class="page-header">
-        <h1>Blog de KairosPy</h1>
-        <p style="font-size: 1.2rem; color: #555;">Análisis, tutoriales y reflexiones sobre datos, IA y estrategia tecnológica.</p>
+    <header class="hero" style="height: 50vh;">
+        <div class="container hero-content">
+            <span class="tagline">> ARCHIVE_STATUS: DECLASSIFIED</span>
+            <h1>Operational Intelligence.</h1>
+            <p class="sub-hero">
+                Technical briefings, architecture patterns, and strategic analysis derived from active field operations.
+            </p>
+        </div>
     </header>
 
-    <main class="container">
-        <section class="articles-list">
-
-            <article class="article-summary">
-                <h3><a href="#">Cómo la IA Generativa está transformando el Reporting</a></h3>
-                <p class="article-meta">Publicado el 25 de Julio, 2025</p>
-                <p>Exploramos cómo las nuevas herramientas de IA no solo visualizan datos, sino que generan insights y resúmenes ejecutivos de forma automática, liberando tiempo para la toma de decisiones estratégicas.</p>
-                <a href="#" class="read-more">Leer más &rarr;</a>
+    <main class="container section-padding">
+        
+        <div class="intel-grid">
+            
+            <article class="intel-card">
+                <div class="intel-meta">
+                    <span>ID: #RPT-2025-08</span>
+                    <span class="clearance-tag">RESTRICTED</span>
+                </div>
+                <h3><a href="index.html#contact" onclick="requestAccess('The Ontology Trap')">The Ontology Trap: Why Data Lakes Fail in Enterprise Environments</a></h3>
+                <p class="intel-excerpt">
+                    Most companies build data swamps, not lakes. An analysis on how Palantir's ontology-first approach fixes the context gap that traditional ETL pipelines ignore.
+                </p>
+                <div class="intel-footer">
+                    <span class="intel-date">FILED: AUG 12, 2025</span>
+                    <a href="index.html#contact" class="read-link" onclick="requestAccess('The Ontology Trap')">REQUEST_ACCESS &rarr;</a>
+                </div>
             </article>
 
-            <article class="article-summary">
-                <h3><a href="#">5 Errores Comunes al Construir un Pipeline de Datos en AWS</a></h3>
-                <p class="article-meta">Publicado el 18 de Julio, 2025</p>
-                <p>Desde la elección incorrecta de servicios hasta la falta de un buen gobierno del dato. Analizamos los fallos más habituales y cómo evitarlos para construir una infraestructura de datos escalable y segura.</p>
-                <a href="#" class="read-more">Leer más &rarr;</a>
+            <article class="intel-card">
+                <div class="intel-meta">
+                    <span>ID: #RPT-2025-07</span>
+                    <span class="clearance-tag">RESTRICTED</span>
+                </div>
+                <h3><a href="index.html#contact" onclick="requestAccess('Autonomous Agents Protocol')">Autonomous Agents in Fintech: A Security Protocol</a></h3>
+                <p class="intel-excerpt">
+                    Deploying LLMs in regulated sectors requires more than prompt engineering. We break down a secure architecture using LangChain and private vector stores.
+                </p>
+                <div class="intel-footer">
+                    <span class="intel-date">FILED: JUL 28, 2025</span>
+                    <a href="index.html#contact" class="read-link" onclick="requestAccess('Autonomous Agents Protocol')">REQUEST_ACCESS &rarr;</a>
+                </div>
             </article>
 
-        </section>
+            <article class="intel-card">
+                <div class="intel-meta">
+                    <span>ID: #RPT-2025-05</span>
+                    <span class="clearance-tag" style="color: #ff5f56; border-color: #ff5f56;">CLASSIFIED</span>
+                </div>
+                <h3 style="color: #666; cursor: not-allowed;">[REDACTED] Strategic Data Acquisition for Logistics</h3>
+                <p class="intel-excerpt" style="filter: blur(4px); user-select: none;">
+                    This document contains sensitive methodologies regarding supply chain optimization. Access is restricted to Level 2 partners.
+                </p>
+                <div class="intel-footer">
+                    <span class="intel-date">FILED: MAY 10, 2025</span>
+                    <span style="font-family: var(--font-code); font-size: 0.8rem; color: #ff5f56;">[LOCK] CLEARANCE REQUIRED</span>
+                </div>
+            </article>
+
+        </div>
+
     </main>
 
     <footer class="footer">
-        <p>¿Listo para encontrar tu momento oportuno?</p>
-        <p>Hablemos. <a href="mailto:hola@kairospy.com">hola@kairospy.com</a></p>
-        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2025 KairosPy. Todos los derechos reservados.</p>
+        <div class="container">
+            <p>&copy; 2025 KAIROSPY. All Operations Classified.</p>
+            <p style="font-family: var(--font-code); font-size: 0.8rem; color: #444;">EST. MADRID // GLOBAL OPS</p>
+        </div>
     </footer>
 
     <script>
@@ -48,11 +88,8 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('navbar-placeholder').innerHTML = data;
-
-                    // Lógica para marcar el enlace activo
                     const currentPage = window.location.pathname.split('/').pop();
                     const navLinks = document.querySelectorAll('.main-nav a');
-                    
                     navLinks.forEach(link => {
                         const linkPage = link.getAttribute('href').split('/').pop();
                         if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
@@ -61,6 +98,15 @@
                     });
                 });
         });
+
+        // Esta función guarda qué documento quería leer el usuario
+        // Y cuando llegue al index, podríamos usarlo (opcional)
+        // Por ahora, simplemente simula la intención.
+        function requestAccess(docName) {
+            // Podríamos guardar esto en localStorage si quisiéramos ser muy pro
+            // localStorage.setItem('requestedDoc', docName);
+            alert("SECURITY ALERT: This document is classified.\n\nYou are being redirected to the Secure Uplink to request clearance.");
+        }
     </script>
 </body>
 </html>
