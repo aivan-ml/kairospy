@@ -201,39 +201,93 @@
                     });
                 });
 
-            // 2. Lógica del Formulario Terminal
+            // 2. Lógica del Formulario Terminal con Envío Real (AJAX)
             const form = document.getElementById('secureForm');
             const output = document.getElementById('terminalOutput');
             const consoleLines = document.getElementById('consoleLines');
 
-            form.addEventListener('submit', function(e) {
+            // --- CONFIGURACIÓN DEL ENDPOINT ---
+            const ENDPOINT = "https://formspree.io/f/mldqlknb"; 
+
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault(); 
                 
-                form.style.display = 'none';
-                output.style.display = 'block';
+                const submitBtn = form.querySelector('button');
+                const originalBtnText = submitBtn.innerText;
+                
+                // Efecto visual de "Enviando..."
+                submitBtn.innerText = "ENCRYPTING_PACKET...";
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.7";
 
-                const lines = [
-                    "> Initializing secure handshake...",
-                    "> Encrypting payload (AES-256)...",
-                    "> Resolving host: node.kairospy.hidden...",
-                    "> Connection established.",
-                    "> Uploading mission brief...",
-                    "> [100%] Transmission complete.",
-                    "> Awaiting Handler response. Stand by."
-                ];
+                // Recoger datos
+                const formData = new FormData(form);
 
-                let delay = 0;
-                lines.forEach((line, index) => {
+                try {
+                    // Intento de transmisión real
+                    const response = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // --- ÉXITO: Ejecutar animación de terminal ---
+                        form.style.display = 'none';
+                        output.style.display = 'block';
+
+                        const lines = [
+                            "> Initializing secure handshake...",
+                            "> Encrypting payload (AES-256)...",
+                            "> Resolving host: node.kairospy.hidden...",
+                            "> Connection established [200 OK].",
+                            "> Uploading mission brief...",
+                            "> [100%] Transmission complete.",
+                            "> Awaiting Handler response. Stand by."
+                        ];
+
+                        let delay = 0;
+                        lines.forEach((line, index) => {
+                            setTimeout(() => {
+                                const p = document.createElement('p');
+                                p.textContent = line;
+                                p.style.margin = "5px 0";
+                                p.style.fontFamily = "var(--font-code)";
+                                
+                                // Colores de estado
+                                if (line.includes("200 OK")) p.style.color = "#27c93f"; // Verde
+                                if (index === lines.length - 1) p.style.color = "var(--accent-primary)"; // Turquesa
+                                
+                                consoleLines.appendChild(p);
+                            }, delay);
+                            delay += 600 + Math.random() * 400;
+                        });
+
+                        form.reset(); // Limpiar formulario
+                    } else {
+                        // Error del servidor (ej: spam detectado)
+                        throw new Error("Server responded with error code.");
+                    }
+                } catch (error) {
+                    // --- FALLO: Mostrar error en el botón ---
+                    submitBtn.innerText = "TRANSMISSION_FAILED";
+                    submitBtn.style.borderColor = "#ff5f56"; // Rojo
+                    submitBtn.style.color = "#ff5f56";
+                    
+                    console.error("Transmission Error:", error);
+                    
                     setTimeout(() => {
-                        const p = document.createElement('p');
-                        p.textContent = line;
-                        p.style.margin = "5px 0";
-                        p.style.fontFamily = "var(--font-code)";
-                        if(index === lines.length - 1) p.style.color = "var(--accent-primary)";
-                        consoleLines.appendChild(p);
-                    }, delay);
-                    delay += 800 + Math.random() * 500;
-                });
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = "1";
+                        submitBtn.style.borderColor = "var(--accent-primary)";
+                        submitBtn.style.color = "var(--accent-primary)";
+                    }, 3000);
+                    
+                    alert("ERROR: Secure Uplink refused connection. Please try again or use direct channel.");
+                }
             });
         });
 
@@ -245,6 +299,8 @@
                 select.style.borderColor = 'var(--accent-primary)';
                 setTimeout(() => select.style.borderColor = '#333', 1000);
             }
+            // Scroll suave hacia el formulario
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
