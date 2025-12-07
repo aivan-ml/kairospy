@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Protocol - KAIROSPY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="container section-padding">
+        
+        <header style="margin-bottom: 4rem; border-bottom: 1px solid #333; padding-bottom: 2rem;">
+            <span style="font-family: var(--font-code); color: var(--accent-primary);">> SYSTEM_STATUS: SECURE</span>
+            <h1 style="margin-top: 1rem;">Data Minimization Protocol.</h1>
+            <p style="color: var(--text-muted); max-width: 600px;">
+                We operate under a strict "No-Trace" doctrine. We do not track individuals, we do not sell data, and we do not use cookies.
+            </p>
+        </header>
+
+        <div class="intel-grid">
+            
+            <section class="intel-card" style="border: none;">
+                <h3>01 // SURVEILLANCE & TRACKING</h3>
+                <p class="intel-excerpt">
+                    This site is static. We do not use "cookies," "pixels," or persistent identifiers to track your behavior across the web.
+                </p>
+                <p class="intel-excerpt">
+                    <strong>Telemetry:</strong> We utilize <span style="color: #fff;">Cloudflare Web Analytics</span> to measure system performance and traffic volume. This technology is privacy-first: it does not use client-side state (cookies) and does not collect personal data.
+                </p>
+            </section>
+
+            <section class="intel-card" style="border: none;">
+                <h3>02 // INFRASTRUCTURE</h3>
+                <p class="intel-excerpt">
+                    <strong>Hosting:</strong> This frequency is broadcast via <span style="color: #fff;">GitHub Pages</span>. GitHub may collect server logs (IP addresses) for security and legal purposes, independent of Kairospy operations.
+                </p>
+                <p class="intel-excerpt">
+                    <strong>Protection:</strong> Traffic is filtered through <span style="color: #fff;">Cloudflare's Edge Network</span> for DDoS mitigation and SSL encryption.
+                </p>
+            </section>
+
+            <section class="intel-card" style="border: none;">
+                <h3>03 // COMMUNICATIONS</h3>
+                <p class="intel-excerpt">
+                    Information submitted via our Secure Uplink (contact forms) is transmitted directly to our encrypted handlers. We retain this data solely for the purpose of the requested operation. We do not build marketing lists.
+                </p>
+            </section>
+
+            <section class="intel-card" style="border: none;">
+                <h3>04 // LEGAL COMPLIANCE</h3>
+                <p class="intel-excerpt">
+                    <strong>Jurisdiction:</strong> Operations are based in Madrid, Spain. We comply with GDPR regulations through data minimization, not through complex consent banners.
+                </p>
+                <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.05); border-left: 2px solid var(--accent-primary);">
+                    <span style="font-family: var(--font-code); font-size: 0.8rem; display: block; margin-bottom: 0.5rem;">> DATA_OFFICER_CONTACT</span>
+                    <a href="mailto:privacy@kairospy.com" style="color: #fff; text-decoration: none;">privacy@kairospy.com</a>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KAIROSPY. All Operations Classified.</p>
+            <p style="font-family: var(--font-code); font-size: 0.8rem; color: #444;">
+                EST. MADRID // <a href="privacy.html" style="color: #666; text-decoration: none;">PRIVACY_PROTOCOL</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+    <!-- Cloudflare Web Analytics -->
+     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af1c2829514d4ed0ab6401de9f66a09b"}'></script>
+     <!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
