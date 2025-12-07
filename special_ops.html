@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Ops - KAIROSPY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Unique styling for the "Process" visualization */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .process-step {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--accent-primary);
+            background: #000;
+        }
+
+        .step-number {
+            font-family: var(--font-code);
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        /* The connecting line */
+        .flow-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, #333 0%, var(--accent-primary) 50%, #333 100%);
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .process-flow { flex-direction: column; gap: 2rem; }
+            .flow-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero" style="height: 60vh;">
+        <div class="container hero-content">
+            <span class="tagline">> MISSION_PROFILE: UNSTRUCTURED</span>
+            <h1>Undefined Problems require<br>Surgical Solutions.</h1>
+            <p class="sub-hero">
+                We are not a traditional consultancy. We don't need 100 pages of requirements to understand your vision. 
+                We work with raw ideas and deliver finished intelligence.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="btn" onclick="requestOps()">BRIEF_THE_ARCHITECTS</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        
+        <section>
+            <div style="border-left: 3px solid var(--accent-primary); padding-left: 1.5rem;">
+                <h2 style="border: none; margin-bottom: 0.5rem; font-size: 1.8rem;">The "Zero-Friction" Doctrine</h2>
+                <p style="font-size: 1.1rem; color: var(--text-main);">
+                    Corporate IT is slow because it is obsessed with "process." We are obsessed with <strong>velocity</strong>.
+                </p>
+                <p style="color: var(--text-muted);">
+                    You don't hire us to fill out Jira tickets. You hire us to solve the problem that your internal team 
+                    is too gridlocked to handle. You provide the objective; we determine the trajectory.
+                </p>
+            </div>
+        </section>
+
+        <section style="margin: 6rem 0;">
+            <h3 style="font-family: var(--font-code); color: #fff; margin-bottom: 2rem;">> OPERATIONAL_WORKFLOW</h3>
+            
+            <div class="process-flow">
+                <div class="flow-line"></div>
+                
+                <div class="process-step">
+                    <span class="step-number">[01] SIGNAL</span>
+                    <h4 style="color: #fff;">The Abstract Brief</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        "I need X to talk to Y, but the API is broken and we need it by Friday." We thrive on ambiguous instructions.
+                    </p>
+                </div>
+
+                <div class="process-step" style="margin: 0 2rem;">
+                    <span class="step-number">[02] BLACKBOX</span>
+                    <h4 style="color: #fff;">The Sprint</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        We go dark. We select the stack that fits the mission (Python, Go, Rust, Node), not the one that sells licenses.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <span class="step-number">[03] IMPACT</span>
+                    <h4 style="color: #fff;">The Artifact</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        Deployment. Documentation. Handover. No bloatware. Just a functional asset solving the specific problem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-hub">
+            
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> CAPABILITY
+                </div>
+                <h3>Greenfield Engineering</h3>
+                <p class="hub-desc">
+                    <strong>From Zero to One.</strong> You have a concept but no code. We build the MVP (Minimum Viable Product) 
+                    rapidly to prove viability before you commit a full engineering team.
+                </p>
+                <ul class="tech-stack">
+                    <li>Full Stack</li>
+                    <li>Architecture</li>
+                    <li>Prototyping</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot yellow"></span> CAPABILITY
+                </div>
+                <h3>Legacy Rescue</h3>
+                <p class="hub-desc">
+                    <strong>The "Impossible" Fix.</strong> Your previous vendor failed. The code is a mess. 
+                    We deploy a cleanup crew to refactor, stabilize, or strangle the legacy system.
+                </p>
+                <ul class="tech-stack">
+                    <li>Refactoring</li>
+                    <li>Migration</li>
+                    <li>Stabilization</li>
+                </ul>
+            </article>
+
+            <article class="hub-card">
+                <div class="card-status">
+                    <span class="status-dot green"></span> CAPABILITY
+                </div>
+                <h3>Skunkworks / R&D</h3>
+                <p class="hub-desc">
+                    <strong>Technical Feasibility Studies.</strong> "Can AI actually do this?" "Is this dataset viable?" 
+                    We run the experiments so you don't burn capital on dead ends.
+                </p>
+                <ul class="tech-stack">
+                    <li>POCs</li>
+                    <li>Research</li>
+                    <li>Analysis</li>
+                </ul>
+            </article>
+
+        </section>
+
+        <section id="contact" style="text-align: center; margin-top: 6rem;">
+            <p style="font-family: var(--font-code); color: var(--text-muted); margin-bottom: 1.5rem;">
+                > DO YOU HAVE AN ANOMALY?
+            </p>
+            <h2 style="border: none; font-size: 2.5rem;">Let's go to the whiteboard.</h2>
+            <a href="index.html#contact" class="btn" onclick="requestOps()">INITIATE_PROJECT &rarr;</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #333;">
+                <p style="font-family: var(--font-code); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                    > DIRECT_CHANNEL_ESTABLISHED:
+                </p>
+                <a href="mailto:ops@kairospy.com" style="font-size: 1.2rem; color: #fff; text-decoration: none; border-bottom: 1px solid var(--accent-primary);">
+                    ops@kairospy.com
+                </a>
+            </div>
+            
+            <p>&copy; 2025 KAIROSPY. All Operations Classified.</p>
+            <p style="font-family: var(--font-code); font-size: 0.8rem; color: #444;">
+                EST. MADRID // <a href="privacy.html" style="color: #555; text-decoration: none; transition: color 0.3s;">PRIVACY_PROTOCOL</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                    const navLinks = document.querySelectorAll('.main-nav a');
+                    navLinks.forEach(link => {
+                        // Mark Special Ops as active
+                        if (link.getAttribute('href') === 'special_ops.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+        });
+
+        function requestOps() {
+            localStorage.setItem('kairospy_intent', 'special_ops');
+            window.location.href = "index.html#contact";
+        }
+    </script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af1c2829514d4ed0ab6401de9f66a09b"}'></script>
+     </body>
+</html>
