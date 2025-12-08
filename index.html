@@ -15,7 +15,7 @@
     <header class="hero">
         <div class="container hero-content">
             <div style="font-family: var(--font-code); color: var(--accent-primary); margin-bottom: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
-                > DEFINITION: KAIROS (καιρός) // "The critical moment for action."
+                > DEFINITION: KAIROS (καιρός) // "The critical moment for AI action."
             </div>
             
             <h1>Orchestrating Elite<br>Technical Solutions.</h1>
@@ -31,46 +31,120 @@
         <section class="container section-padding">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
                 <h2>> Operational Divisions</h2>
-                <span style="font-family: var(--font-code); color: var(--accent-primary); font-size: 0.8rem;">SELECT_VECTOR [3]</span>
+                <span style="font-family: var(--font-code); color: var(--accent-primary); font-size: 0.8rem;">SELECT_VECTOR [4]</span>
             </div>
 
-            <div class="grid-hub">
+            <style>
+                .grid-hub-layout {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 2rem;
+                }
                 
-                <article class="hub-card">
-                    <div class="card-status">
-                        <span class="status-dot green"></span> ONLINE
+                /* Configuración de la Tarjeta Insignia (Foundry) */
+                .hub-card-flagship {
+                    grid-column: 1 / -1; /* Ocupa todo el ancho */
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: linear-gradient(145deg, #0f1115 0%, #050505 100%);
+                    border: 1px solid var(--accent-primary); /* Borde destacado por defecto */
+                    padding: 3rem;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.4s ease;
+                }
+
+                .hub-card-flagship:hover {
+                    box-shadow: 0 0 30px rgba(18, 194, 174, 0.15);
+                    transform: translateY(-2px);
+                }
+
+                .flagship-content {
+                    flex: 1;
+                    padding-right: 2rem;
+                }
+
+                .flagship-actions {
+                    flex-shrink: 0;
+                    text-align: right;
+                    border-left: 1px solid #333;
+                    padding-left: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    justify-content: center;
+                }
+
+                /* Responsive para móviles */
+                @media (max-width: 900px) {
+                    .grid-hub-layout {
+                        grid-template-columns: 1fr; /* Una sola columna */
+                    }
+                    .hub-card-flagship {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    .flagship-content {
+                        padding-right: 0;
+                        margin-bottom: 2rem;
+                    }
+                    .flagship-actions {
+                        border-left: none;
+                        padding-left: 0;
+                        border-top: 1px solid #333;
+                        padding-top: 2rem;
+                        width: 100%;
+                        align-items: flex-start;
+                        text-align: left;
+                    }
+                    .flagship-actions .tech-stack {
+                        justify-content: flex-start;
+                    }
+                }
+            </style>
+
+            <div class="grid-hub-layout">
+                
+                <article class="hub-card-flagship">
+                    <div class="flagship-content">
+                        <div class="card-status">
+                            <span class="status-dot green"></span> PRIME_VECTOR
+                        </div>
+                        <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">01 // FOUNDRY_OPS</h3>
+                        <p class="hub-desc" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 0;">
+                            The Operating System for the modern enterprise. We architect Ontologies, build high-reliability pipelines, and deploy AIP (Artificial Intelligence Platform) logic to close the decision loop.
+                        </p>
                     </div>
-                    <h3>01 // FOUNDRY_OPS</h3>
-                    <p class="hub-desc">
-                        Enterprise Ontology design, Pipeline architecture, and Workshop application development.
-                    </p>
-                    <ul class="tech-stack">
-                        <li>Palantir Foundry</li>
-                        <li>Ontology</li>
-                        <li>AIP</li>
-                    </ul>
-                    <a href="foundry_ops.html" class="btn-link">ACCESS DIVISION &rarr;</a>
+                    <div class="flagship-actions">
+                        <ul class="tech-stack" style="justify-content: flex-end; margin-bottom: 1.5rem;">
+                            <li>Palantir Foundry</li>
+                            <li>Ontology</li>
+                            <li>AIP Logic</li>
+                        </ul>
+                        <a href="foundry_ops.html" class="btn-link" style="font-size: 1rem;">INITIATE ARCHITECTURE &rarr;</a>
+                    </div>
                 </article>
 
                 <article class="hub-card">
                     <div class="card-status">
-                        <span class="status-dot green"></span> ONLINE
+                        <span class="status-dot green"></span> RAPID_DEPLOY
                     </div>
                     <h3>02 // TACTICAL_UI</h3>
                     <p class="hub-desc">
-                        Rapid deployment of Python-native data interfaces, dashboards, and AI-powered internal tools.
+                        Python-native command centers. Dashboards and internal tools deployed in hours, not weeks.
                     </p>
                     <ul class="tech-stack">
                         <li>Streamlit</li>
-                        <li>LangChain</li>
+                        <li>Dashboards</li>
                         <li>Python</li>
                     </ul>
                     <a href="tactical_ui.html" class="btn-link">ACCESS DIVISION &rarr;</a>
                 </article>
 
-                <article class="hub-card" style="border-color: var(--accent-primary);">
+                <article class="hub-card">
                     <div class="card-status">
-                        <span class="status-dot yellow"></span> NEW_VECTOR
+                        <span class="status-dot yellow"></span> HARDWARE
                     </div>
                     <h3>03 // KINETIC_EDGE</h3>
                     <p class="hub-desc">
@@ -90,12 +164,12 @@
                     </div>
                     <h3>04 // SPECIAL_OPS</h3>
                     <p class="hub-desc">
-                        Custom engineering for undefined problems. From rapid prototyping to legacy system rescue.
+                        Ad-hoc engineering for undefined problems. "We don't need specs, we need results."
                     </p>
                     <ul class="tech-stack">
                         <li>Full Stack</li>
-                        <li>Ad-Hoc</li>
                         <li>Rescue</li>
+                        <li>Consulting</li>
                     </ul>
                     <a href="special_ops.html" class="btn-link">ACCESS DIVISION &rarr;</a>
                 </article>
