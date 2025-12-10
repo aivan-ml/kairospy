@@ -74,16 +74,8 @@
             </p>
         </div>
     </footer>
+    <script src="nav-loader.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
-        });
-    </script>
     <!-- Cloudflare Web Analytics -->
      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af1c2829514d4ed0ab6401de9f66a09b"}'></script>
      <!-- End Cloudflare Web Analytics -->

@@ -155,21 +155,9 @@
         </div>
     </footer>
 
+    <script src="nav-loader.js"></script>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    const navLinks = document.querySelectorAll('.main-nav a');
-                    navLinks.forEach(link => {
-                        // Mark Foundry as active
-                        if (link.getAttribute('href') === 'foundry_ops.html') {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-        });
 
         function requestIntel() {
             // Optional: Store intent

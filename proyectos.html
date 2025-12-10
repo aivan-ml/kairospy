@@ -157,23 +157,8 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    const currentPage = window.location.pathname.split('/').pop();
-                    const navLinks = document.querySelectorAll('.main-nav a');
-                    navLinks.forEach(link => {
-                        const linkPage = link.getAttribute('href').split('/').pop();
-                        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-        });
-    </script>
+    <script src="nav-loader.js"></script>
+
     <!-- Cloudflare Web Analytics -->
      <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "af1c2829514d4ed0ab6401de9f66a09b"}'></script>
      <!-- End Cloudflare Web Analytics -->

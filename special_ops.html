@@ -203,21 +203,8 @@
         </div>
     </footer>
 
+    <script src="nav-loader.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    const navLinks = document.querySelectorAll('.main-nav a');
-                    navLinks.forEach(link => {
-                        // Mark Special Ops as active
-                        if (link.getAttribute('href') === 'special_ops.html') {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-        });
 
         function requestOps() {
             localStorage.setItem('kairospy_intent', 'special_ops');

@@ -171,21 +171,10 @@
             </p>
         </div>
     </footer>
+    <script src="nav-loader.js"></script>
+    
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    // Highlight logic
-                    const navLinks = document.querySelectorAll('.main-nav a');
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === 'tactical_ui.html') {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-        });
+
 
         function prefillTarget() {
             // Logic to carry intent to contact form (optional)

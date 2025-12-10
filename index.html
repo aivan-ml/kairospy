@@ -294,22 +294,10 @@
         </div>
     </footer>
 
+    <script src="nav-loader.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 1. Cargar Navegación
-            fetch('nav.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                    const currentPage = window.location.pathname.split('/').pop();
-                    const navLinks = document.querySelectorAll('.main-nav a');
-                    navLinks.forEach(link => {
-                        const linkPage = link.getAttribute('href').split('/').pop();
-                        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-                            link.classList.add('active');
-                        }
-                    });
-                });
 
             // 2. Lógica del Formulario Terminal con Envío Real (AJAX)
             const form = document.getElementById('secureForm');
