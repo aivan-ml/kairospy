@@ -1,5 +1,10 @@
 /* --- KAIROSPY: STEALTH MODE DESIGN SYSTEM --- */
 
+/* --- UNIVERSAL RESET (CRÍTICO) --- */
+* {
+    box-sizing: border-box; /* Crucial: El padding no aumentará el ancho total */
+}
+
 :root {
     --bg-deep: #050505;       /* Negro Profundo */
     --bg-panel: #0f1115;      /* Gris Técnico */
@@ -19,9 +24,8 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     margin: 0;
-    padding: 0;
+    padding-top: 80px; /* <--- AÑADIR ESTA LÍNEA (Compensa la altura del menú) */
 }
-
 /* --- TYPOGRAPHY --- */
 h1, h2, h3, h4 {
     color: #ffffff;
@@ -51,8 +55,12 @@ a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-glow)
     background-color: rgba(5, 5, 5, 0.95);
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
-    position: sticky;
+    
+    /* --- CAMBIO A FIXED --- */
+    position: fixed;  /* Cambiado de sticky a fixed */
     top: 0;
+    left: 0;          /* Asegura anclaje izquierdo */
+    width: 100%;      /* Fuerza el ancho completo */
     z-index: 1000;
     padding: 1rem 0;
 }
@@ -118,7 +126,9 @@ a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-glow)
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    /*max-width: 800px;*/
+    width: 100%;
+    
 }
 
 .tagline {
@@ -366,9 +376,46 @@ a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-glow)
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .nav-container { flex-direction: column; gap: 1rem; }
-    .main-nav ul { gap: 1rem; font-size: 0.8rem; }
+    
+    /* 1. Contenedor: Aseguramos "aire" a los lados */
+    .container {
+        padding-left: 2rem !important;  /* aprox 32px de espacio seguro a la izq */
+        padding-right: 2rem !important; /* aprox 32px de espacio seguro a la der */
+        width: 100%;
+    }
+
+    /* 2. Grillas: FORZAMOS una sola columna (Pila vertical) */
+    /* Esto evita que intente meter dos cajas apretadas */
+    .grid-hub, 
+    .case-grid, 
+    .intel-grid {
+        grid-template-columns: 1fr !important; /* 1 columna que ocupa el espacio disponible */
+        gap: 2rem; /* Espacio vertical generoso entre tarjetas */
+    }
+
+    /* 3. Tarjetas: Quitamos cualquier ancho fijo que pudiera molestar */
+    .hub-card, 
+    .case-card, 
+    .agent-card {
+        width: 100%; 
+        margin: 0; /* Limpiamos márgenes externos */
+    }
+
+    /* Ajustes visuales extra para móvil */
+    h1 { font-size: 2.2rem; } /* Título un poco más pequeño para que no rompa */
+    .nav-container { 
+    /* 1. Mantenemos el padding de seguridad lateral */
+    padding-left: 20px; 
+    padding-right: 20px; 
+    
+    /* 2. ALINEACIÓN HORIZONTAL (LOGO IZQ - MENU DER) */
+    flex-direction: row !important;       /* Vuelta a la fila horizontal */
+    justify-content: space-between !important; /* Empuja los elementos a los extremos opuestos */
+    align-items: center !important;       /* Los centra verticalmente entre sí */
+    
+    /* Opcional: Aseguramos que ocupen todo el ancho disponible */
+    width: 100%; 
+    }
 }
 
 /* --- NETWORK / AGENT DOSSIERS --- */
@@ -561,7 +608,7 @@ a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-glow)
     grid-template-columns: 1fr 300px; /* Diseño asimétrico */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .case-card { grid-template-columns: 1fr; }
 }
 
