@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypassing Foundry Write-Back Latency | KAIROSPY Intelligence</title>
+    <meta name="description" content="Technical briefing on reducing Ontology write-back latency in Palantir Foundry. A guide for Architects building real-time operational loops.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para artículos */
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+        .article-body h2 {
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            color: #fff;
+            border-bottom: none;
+        }
+        .article-body p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .code-block {
+            background: #000;
+            border: 1px solid #333;
+            padding: 1.5rem;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        .highlight {
+            color: #fff;
+            background: rgba(18, 194, 174, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero" style="height: 40vh;">
+        <div class="container hero-content">
+            <span class="tagline">> INTELLIGENCE_BRIEFING: #TEC-001</span>
+            <h1>The Write-Back Paradox.</h1>
+            <p class="sub-hero">
+                Why your "Real-Time" Ontology is lagging by 15 minutes, and how to fix the operational loop.
+            </p>
+        </div>
+    </header>
+
+    <main class="container section-padding">
+        
+        <article class="article-body">
+            
+            <p class="intel-meta">
+                AUTHOR: UNIT_ALPHA // DATE: AUG 14, 2025 // CLEARANCE: PUBLIC
+            </p>
+
+            <p>
+                <strong>The Promise:</strong> Palantir Foundry sells the dream of the "Connected Enterprise." A digital twin where actions taken in the field are instantly reflected in headquarters.
+            </p>
+            <p>
+                <strong>The Reality:</strong> You deploy a Workshop application. An operator updates a critical delivery status. The manager refreshes their dashboard... and waits. And waits. The standard sync pipeline runs every 15 minutes. In high-velocity logistics or trading, 15 minutes is not "real-time." It is history.
+            </p>
+
+            <h2>01 // The Architecture of Lag</h2>
+            <p>
+                The bottleneck usually isn't Foundry itself; it's the <strong>safe-path architecture</strong> most consultancies deploy. They rely heavily on batch processing (Builds) to update the Ontology backing datasets.
+            </p>
+            <p>
+                When a user submits a form in Workshop, the data often goes to a "Writeback Dataset," which then triggers a build, which eventually updates the Object. This "Safe Loop" ensures data integrity but kills operational speed.
+            </p>
+
+            <div class="code-block">
+                > STANDARD_LOOP_DETECTED:<br>
+                [User Action] -> [Writeback Dataset] -> [Schedule Trigger] -> [Spark Build (3-10 mins)] -> [Object Update] -> [UI Refresh]
+            </div>
+
+            <h2>02 // The "Direct-Action" Protocol</h2>
+            <p>
+                To achieve true operational velocity (< 1 second latency), we must bypass the batch build entirely for transactional updates.
+            </p>
+            <p>
+                At Kairospy, we implement <strong>Action-Based Ontology Edits</strong> combined with <span class="highlight">Function-Backed Actions</span>. Instead of writing to a dataset and waiting for a build, the Action directly modifies the object properties in the live layer.
+            </p>
+
+            <p>
+                <strong>The Critical difference:</strong>
+            </p>
+            <ul>
+                <li>We decouple the <em>Analytical Plane</em> (History/Trends) from the <em>Operational Plane</em> (Current State).</li>
+                <li>The "Current State" is handled via pure Ontology Edits (Side Effects).</li>
+                <li>The "History" is handled via async write-back logs that process later.</li>
+            </ul>
+
+            <h2>03 // Implementation Strategy</h2>
+            <p>
+                Do not attempt to overhaul the entire Ontology at once. Identify the <strong>"Hot Objects"</strong>—entities that change state more than 10 times per hour (e.g., Delivery Trucks, Order Status, Server Health).
+            </p>
+            <p>
+                Migrate these objects to use <strong>Phonograph-only edits</strong> for immediate feedback loops. Keep the heavy PySpark transforms for the nightly reporting layer.
+            </p>
+
+            <div style="margin-top: 4rem; padding: 2rem; border: 1px solid var(--accent-primary); text-align: center;">
+                <h3 style="color: #fff; margin-bottom: 1rem;">Is your pipeline failing the speed test?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                    We audit Foundry architectures for latency bottlenecks.
+                </p>
+                <a href="index.html#contact" class="btn" onclick="requestAudit()">REQUEST_PIPELINE_AUDIT</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KAIROSPY. Operations Classified.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+        });
+        
+        function requestAudit() {
+            localStorage.setItem('kairospy_intent', 'foundry_audit');
+            window.location.href = "index.html#contact";
+        }
+    </script>
+</body>
+</html>
