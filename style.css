@@ -738,3 +738,75 @@ a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-glow)
         width: 100%;
     }
 }
+
+
+/* --- COMPONENTES UI (HAMBURGUESA & MOVIL) --- */
+
+/* Estilos base del botón hamburguesa (Oculto en escritorio) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2000;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+/* Animación de la X cuando está activo */
+.menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); background-color: var(--accent-primary); }
+.menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background-color: var(--accent-primary); }
+
+/* --- RESPONSIVE BREAKPOINT (TABLETS & MOBILE) --- */
+/* Aumentado a 1100px para evitar que el menú se monte en tablets */
+@media screen and (max-width: 1100px) {
+    
+    .nav-container {
+        flex-direction: row !important; /* Logo izquierda, botón derecha */
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .menu-toggle { display: block; }
+
+    /* Estilo del Menú Desplegable */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(5, 5, 5, 0.98); /* Fondo casi opaco */
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateY(-100%); /* Oculto arriba por defecto */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1500; /* Debajo del botón, encima del contenido */
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links.mobile-open {
+        transform: translateY(0); /* Deslizar hacia abajo */
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem; /* Enlaces más grandes en móvil */
+        color: #fff;
+    }
+}
