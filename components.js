@@ -22,8 +22,8 @@ function renderHeader() {
                 <li><a href="foundry_ops.html">Foundry</a></li>
                 <li><a href="tactical_ui.html">Tactical_UI</a></li>
                 <li><a href="kinetic-edge.html">Kinetic</a></li>
-                <li><a href="proyectos.html">Case_Files</a></li>
-                <li><a href="equipo.html">Network</a></li>
+                <li><a href="case_files.html">Case_Files</a></li>
+                <li><a href="network.html">Network</a></li>
                 <li><a href="blog.html">Intel</a></li>
             </ul>
         </div>
